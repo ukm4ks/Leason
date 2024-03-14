@@ -34,7 +34,7 @@
         }
 
         section {
-            display: #home;
+            display: none;
             padding: 40px;
             text-align: center;
         }
@@ -65,6 +65,15 @@
     </section>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                if (section.id !== 'home') {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
         function showSection(sectionId) {
             var sections = document.querySelectorAll('section');
             sections.forEach(function(section) {
