@@ -34,6 +34,7 @@
         }
 
         section {
+            display: none; /* Скрыть все секции по умолчанию */
             padding: 40px;
             text-align: center;
         }
@@ -46,8 +47,8 @@
     </header>
 
     <nav>
-        <a href="#home">Головна</a>
-        <a href="#homework">Домашні завдання</a>
+        <a href="#home" onclick="showSection('home')">Головна</a>
+        <a href="#homework" onclick="showSection('homework')">Домашні завдання</a>
     </nav>
 
     <section id="home">
@@ -57,8 +58,18 @@
 
     <section id="homework">
         <h2>Домашні завдання</h2>
-        <p></p>
+        <p>Тут можна розмістити текст з домашніми завданнями.</p>
     </section>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section'); // Получить все секции
+            sections.forEach(function(section) {
+                section.style.display = 'none'; // Скрыть все секции
+            });
+            document.getElementById(sectionId).style.display = 'block'; // Показать только выбранную секцию
+        }
+    </script>
 
 </body>
 </html>
