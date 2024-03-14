@@ -63,5 +63,24 @@
         <h5>Заголовок 5</h5>
     </section>
 
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                if (section.id !== 'home') {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+</script>
+
 </body>
 </html>
