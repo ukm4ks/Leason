@@ -34,7 +34,7 @@
         }
 
         section {
-            display: none; /* Скрыть все секции по умолчанию */
+            display: none;
             padding: 40px;
             text-align: center;
         }
@@ -58,16 +58,16 @@
 
     <section id="homework">
         <h2>Домашні завдання</h2>
-        <p>Тут можна розмістити текст з домашніми завданнями.</p>
+        <h1>Заголовок 1</h1>
     </section>
 
     <script>
         function showSection(sectionId) {
-            var sections = document.querySelectorAll('section'); // Получить все секции
+            var sections = document.querySelectorAll('section');
             sections.forEach(function(section) {
-                section.style.display = 'none'; // Скрыть все секции
+                section.style.display = 'none';
             });
-            document.getElementById(sectionId).style.display = 'block'; // Показать только выбранную секцию
+            document.getElementById(sectionId).style.display = 'block';
         }
     </script>
 
