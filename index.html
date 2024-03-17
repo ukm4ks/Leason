@@ -56,8 +56,8 @@
     </header>
 
     <nav>
-        <a href="#home" onclick="showSection('home')">Головна</a>
-        <a href="#homework" onclick="showSection('homework')">Домашні завдання</a>
+        <a href="#home">Головна</a>
+        <a href="#homework">Домашні завдання</a>
     </nav>
 
     <section id="home">
@@ -76,25 +76,6 @@
     <footer>
         &copy; 2024 LovelyLover
     </footer>
-
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                if (section.id !== 'home') {
-                    section.style.display = 'none';
-                }
-            });
-        });
-
-        function showSection(sectionId) {
-            var sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
-            document.getElementById(sectionId).style.display = 'block';
-        }
-</script>
 
 </body>
 </html>
