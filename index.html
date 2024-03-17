@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,6 @@
         section {
             padding: 40px;
             text-align: center;
-            display: none;
         }
 
         footer {
@@ -57,8 +56,8 @@
     </header>
 
     <nav>
-        <a href="#home">Головна</a>
-        <a href="#homework">Домашні завдання</a>
+        <a href="#home" onclick="showSection('home')">Головна</a>
+        <a href="#homework" onclick="showSection('homework')">Домашні завдання</a>
     </nav>
 
     <section id="home">
@@ -78,22 +77,24 @@
         &copy; 2024 LovelyLover
     </footer>
 
-    <script>
-        // Визначаємо вкладку, яку потрібно показати на основі хеша у URL
-        function showTab() {
-            var hash = window.location.hash;
-            var section = document.querySelector(hash);
-            if (section) {
-                section.style.display = 'block';
-            }
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                if (section.id !== 'home') {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
         }
-
-        // Показуємо відповідну вкладку при завантаженні сторінки
-        window.addEventListener('DOMContentLoaded', showTab);
-
-        // Перевіряємо зміни у URL під час натискання посилань
-        window.addEventListener('hashchange', showTab);
-    </script>
+</script>
 
 </body>
 </html>
