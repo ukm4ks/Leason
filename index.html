@@ -1,19 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Тема (Зміни назву сторінки)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт Марчука Максима</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        header {
+            background-color: #8A2BE2;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<header>
-Заголовок - Деякі заголовки йдуть тут. Зазавичай складається з логотипа компанії, рядка тегів і т.д.
-</header>
-Головний заголовок сторінки (Зробити заголовком 1-го рівня)
-<section>
-Розділ 1 (зробити заголовком 2-го рівня)
-</section>
-<footer>
-NSKN (Змінити на своє прізвище/нік/бренд і зробити заголовком 5-го рівня)
-</footer>
+
+    <header>
+        <h1>Вітаємо!</h1>
+    </header>
+
+    <nav>
+        <a href="#home" onclick="showSection('home')">Головна</a>
+        <a href="#homework" onclick="showSection('homework')">Домашні завдання</a>
+    </nav>
+
+    <section id="home">
+        <h2>Головна</h2>
+        <p>Нарешті щось цікавеньке!</p>
+    </section>
+
+    <section id="homework">
+        <h1>Заголовок 1</h1>
+        <h2>Заголовок 2</h2>
+        <h3>Заголовок 3</h3>
+        <h4>Заголовок 4</h4>
+        <h5>Заголовок 5</h5>
+    </section>
+
+    <footer>
+        &copy; 2024 LovelyLover
+    </footer>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                if (section.id !== 'home') {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+</script>
+
 </body>
 </html>
