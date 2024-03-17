@@ -36,6 +36,7 @@
         section {
             padding: 40px;
             text-align: center;
+            display: none;
         }
 
         footer {
@@ -76,6 +77,23 @@
     <footer>
         &copy; 2024 LovelyLover
     </footer>
+
+    <script>
+        // Визначаємо вкладку, яку потрібно показати на основі хеша у URL
+        function showTab() {
+            var hash = window.location.hash;
+            var section = document.querySelector(hash);
+            if (section) {
+                section.style.display = 'block';
+            }
+        }
+
+        // Показуємо відповідну вкладку при завантаженні сторінки
+        window.addEventListener('DOMContentLoaded', showTab);
+
+        // Перевіряємо зміни у URL під час натискання посилань
+        window.addEventListener('hashchange', showTab);
+    </script>
 
 </body>
 </html>
