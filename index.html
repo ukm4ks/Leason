@@ -10,8 +10,47 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #343a40;
+            overflow-x: hidden;
+        }
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+        }
+
+        #splash-screen.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
         }
 
         header {
@@ -37,6 +76,7 @@
         section {
             padding: 40px;
             text-align: center;
+            display: none;
         }
 
         footer {
@@ -60,10 +100,50 @@
             text-align: center;
             margin-top: 50px;
         }
-        
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fadeInOut {
+            animation: fadeInOut 5s forwards;
+        }
     </style>
 </head>
 <body>
+
+    <div id="splash-screen">
+        <script>
+            const numStars = 300;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                document.getElementById('splash-screen').appendChild(star);
+                const xy = getRandomPosition();
+                star.style.top = xy[0] + 'px';
+                star.style.left = xy[1] + 'px';
+                const speed = Math.random() * 2 + 1;
+                star.style.animation = `twinkle ${speed}s linear infinite`;
+            }
+
+            function getRandomPosition() {
+                const x = window.innerWidth * Math.random();
+                const y = window.innerHeight * Math.random();
+                return [y, x];
+            }
+        </script>
+        <div id="welcome-text" class="fadeInOut">
+            <h1 style="margin: 0; color: white;">Вітаємо!</h1>
+        </div>
+    </div>
 
     <header>
         <h1>Вітаємо!</h1>
@@ -78,9 +158,9 @@
         <h2>Головна</h2>
         <p>Нарешті щось цікавеньке!</p>
         <div class="audio-player">
-          <audio id="audio" controls>
-            <source src="sound.mp3" type="audio/mpeg">
-          </audio>
+            <audio id="audio" controls>
+                <source src="sound.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </section>
 
@@ -93,25 +173,27 @@
     </section>
 
     <footer>
-       <h5>&copy; 2024 LovelyLover</h5>
+        <h5>&copy; 2024 Марчук Максим</h5>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                if (section.id !== 'home') {
-                    section.style.display = 'none';
-                }
-            });
+            var splashScreen = document.getElementById('splash-screen');
+            setTimeout(function() {
+                splashScreen.classList.add('loaded');
+                showSection('home');
+            }, 4000);
         });
 
         function showSection(sectionId) {
             var sections = document.querySelectorAll('section');
             sections.forEach(function(section) {
-                section.style.display = 'none';
+                if (section.id === sectionId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
             });
-            document.getElementById(sectionId).style.display = 'block';
         }
     </script>
 
