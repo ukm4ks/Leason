@@ -35,7 +35,4 @@ function showSection(sectionId) {
     });
 }
 
-window.onload = function() {
-    location.href = "#top";
-}
 
