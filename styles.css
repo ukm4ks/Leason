@@ -10,16 +10,6 @@ body {
     overflow-x: hidden;
 }
 
-.left-column {
-    text-align: left;
-    padding-right: 20px; /* Отступ справа для разделения колонок */
-}
-
-/* Выравнивание текста в правой колонке по правому краю */
-.right-column {
-    text-align: right;
-}
-
 #splash-screen {
     position: fixed;
     top: 0;
@@ -79,6 +69,13 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
 }
+
+section {
+    padding: 40px;
+    text-align: center;
+    display: none;
+}
+
 
 footer {
     background-color: #343a40;
