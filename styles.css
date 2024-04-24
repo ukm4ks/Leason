@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-li {
+.bold-text {
     font-weight: bold;
 }
 
