@@ -81,9 +81,9 @@ section {
 }
 
 table {
-    padding: 40px;
+    margin: 0 auto;
+    padding: 20px;
     text-align: center;
-    display: none;
 }
 
 footer {
