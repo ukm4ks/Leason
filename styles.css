@@ -80,6 +80,12 @@ section {
     display: none;
 }
 
+table {
+    padding: 40px;
+    text-align: center;
+    display: none;
+}
+
 footer {
     background-color: #343a40;
     color: #ffffff;
