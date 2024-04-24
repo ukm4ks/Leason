@@ -10,15 +10,6 @@ body {
     overflow-x: hidden;
 }
 
-.left-column {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.right-column {
-    flex: 1;
-}
-
 #splash-screen {
     position: fixed;
     top: 0;
@@ -145,4 +136,16 @@ footer h5 {
 
 .button:hover {
     background-color: #0056b3;
+}
+
+#home p {
+    flex: 1; /* Расширяем абзац на всю доступную ширину */
+    margin-right: 20px; /* Добавляем отступ между абзацем и списком */
+}
+
+#home ul {
+    flex: 1; /* Расширяем список на всю доступную ширину */
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы у списка */
+    margin: 0; /* Убираем внешние отступы у списка */
 }
