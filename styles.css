@@ -137,3 +137,11 @@ footer h5 {
 .button:hover {
     background-color: #0056b3;
 }
+
+ul {
+    padding-left: 0; /* Убираем отступ слева у списка */ 
+}
+li {
+    list-style-position: inside; /* Помещаем маркер внутри контейнера li */
+    text-indent: -1em; /* Сдвигаем текст обратно влево на размер маркера */
+}
